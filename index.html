@@ -65,7 +65,7 @@
 					<!-- countdown -->
 
 					<div class="contact-button">
-						<a href="#contact" class="btn">Contact Us</a>
+						<a href="#contact" class="btn">Facebook</a>
 					</div>
 				</div>
 				<!-- copyright -->
@@ -102,7 +102,7 @@
 					const distance = deadlineDate - currentDate;
 
 					// Calculations the data for remaining days, hours, minutes and seconds
-					const days = Math.floor(currentDate / (1000 * 60 * 60 * 24));
+					const days = Math.floor(currentDate);
 					const hours = Math.floor((currentDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 					const minutes = Math.floor((currentDate % (1000 * 60 * 60)) / (1000 * 60));
 					const seconds = Math.floor((currentDate % (1000 * 60)) / 1000);
