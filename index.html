@@ -102,10 +102,10 @@
 					const distance = deadlineDate - currentDate;
 
 					// Calculations the data for remaining days, hours, minutes and seconds
-					const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-					const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-					const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-					const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+					const days = Math.floor(currentDate / (1000 * 60 * 60 * 24));
+					const hours = Math.floor((currentDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+					const minutes = Math.floor((currentDate % (1000 * 60 * 60)) / (1000 * 60));
+					const seconds = Math.floor((currentDate % (1000 * 60)) / 1000);
 
 					// Insert the result data into individual countdown boxes
 					countdownDays.innerHTML = days;
