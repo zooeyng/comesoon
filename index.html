@@ -97,7 +97,10 @@
 				setInterval(() => {
 					// Get current date and time
 					const currentDate = new Date().getTime();
-
+                                        const bhours = Math.floor((currentDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)+8);
+					if bhours >= 24 then
+					bhours = 24-bhours;
+					
 					// Calculate the distance between current date and time and the deadline date and time
 					const distance = deadlineDate - currentDate;
 
@@ -109,7 +112,7 @@
 
 					// Insert the result data into individual countdown boxes
 					countdownDays.innerHTML = 'now';
-					countdownHours.innerHTML = hours;
+					countdownHours.innerHTML = bhours;
 					countdownMinutes.innerHTML = minutes;
 					countdownSeconds.innerHTML = seconds;
 				}, 1000);
