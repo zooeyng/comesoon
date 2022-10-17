@@ -108,10 +108,10 @@
 					const seconds = Math.floor((currentDate % (1000 * 60)) / 1000);
 
 					// Insert the result data into individual countdown boxes
-					countdownDays.innerHTML = '2022/10/17';
+					countdownDays.innerHTML = '2022 / 10 / 17';
 					countdownHours.innerHTML = hours;
-					countdownMinutes.innerHTML = minutes;
-					countdownSeconds.innerHTML = seconds;
+					countdownMinutes.innerHTML = '  :  '+minutes;
+					countdownSeconds.innerHTML = '  :  '+seconds;
 				}, 1000);
 			})();
 		</script>
