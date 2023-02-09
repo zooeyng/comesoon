@@ -1,0 +1,43 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>time</title>
+<style>
+body {background-color:#2E2F30;}
+h1 {color:#E8DECF;font-size:150px;}
+h5 {color:#C0AA83;letter-spacing:30px;font-size:90px;}
+</style>	
+	
+<script>
+function startTime(){
+	var tt=new Date();
+	var h=tt.getHours();
+	var m=tt.getMinutes();
+	var s=tt.getSeconds();
+	var y=tt.getFullYear();
+	var mm=Number(tt.getMonth())+1;
+	var d=tt.getDate();
+	m=checkTime(m);
+	s=checkTime(s);
+	mm=checkTime(mm);
+	d=checkTime(d);
+	document.getElementById('time').innerHTML=h+":"+m+":"+s;
+	document.getElementById('long time').innerHTML=y+"/"+mm+"/"+d;
+	
+	t=setTimeout(function(){startTime()},1000);
+}
+function checkTime(i){
+	if (i<10){
+		i="0" + i;
+	}
+	return i;
+}
+</script>
+</head>
+<body onload="startTime()">
+	
+<h1 id="time"></h1>
+<h5 id="long time"></h5>
+	
+</body>
+</html>
