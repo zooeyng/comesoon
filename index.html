@@ -16,7 +16,7 @@
 </head>
 
 <body>
-	<!-- coming soon -->
+
 	<section class="w3l-coming-soon-page">
 		<div class="coming-page-info">
 			<div class="wrapper">
@@ -66,48 +66,57 @@
 			</div>
 		</div>
 
-		<!-- js -->
+
 		<script src="js/jquery-3.3.1.min.js"></script>
 
-		<!-- Script for counter -->
+
 		<script>
 			(() => {
-				// Specify the deadline date
-				const deadlineDate = new Date('January 27, 2021 23:59:59').getTime();
 
-				// Cache all countdown boxes into consts
-				const countdownDays = document.querySelector('.countdown__days .number');
+				//const deadlineDate = new Date('January 27, 2021 23:59:59').getTime();
+
+
+				//const countdownDays = document.querySelector('.countdown__days .number');
 				const countdownHours = document.querySelector('.countdown__hours .number');
 				const countdownMinutes = document.querySelector('.countdown__minutes .number');
 				const countdownSeconds = document.querySelector('.countdown__seconds .number');
 
-				// Update the count down every 1 second (1000 milliseconds)
+
 				setInterval(() => {
-					// Get current date and time
+
 					const currentDate = new Date().getTime();
                                         					
-					// Calculate the distance between current date and time and the deadline date and time
-					const distance = deadlineDate - currentDate;
 
-					// Calculations the data for remaining days, hours, minutes and seconds
-					//const days = Math.floor(currentDate);
+					//const distance = deadlineDate - currentDate;
+
 					const hours = Math.floor((currentDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)+8);
 					const minutes = Math.floor((currentDate % (1000 * 60 * 60)) / (1000 * 60));
 					const seconds = Math.floor((currentDate % (1000 * 60)) / 1000);
+ 
+	var h=hours;
+	var m=minutes;
+	var s=seconds;
 
-					// Insert the result data into individual countdown boxes
-					
-					//countdownDays.innerHTML = 'Now';
-					countdownHours.innerHTML = hours;
-					countdownMinutes.innerHTML = minutes;
-					countdownSeconds.innerHTML = seconds;
+	h=checkTime(h);
+	m=checkTime(m);
+	s=checkTime(s);
+
+					countdownHours.innerHTML = h;
+					countdownMinutes.innerHTML = m;
+					countdownSeconds.innerHTML = s;
 				}, 1000);
 			})();
+		
+		function checkTime(i){
+	if (i<10){
+		i="0" + i;
+	}
+	return i;
+}
+		
 		</script>
-		<!-- //Script for counter -->
 
 	</section>
-	<!-- //coming soon -->
 
 </body>
 
