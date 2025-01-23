@@ -8,13 +8,16 @@
     <div id="xmlData"></div>
  
     <script>
-        fetch('https://rss.smg.gov.mo/c_ActualWeather_rss.xml') // 确保URL正确，并且服务器支持跨域请求（CORS）
-            .then(response => response.text()) // 将响应作为文本处理，因为fetch默认处理JSON，需要手动处理XML文本
-            .then(str => new window.DOMParser().parseFromString(str, "text/xml")) // 解析文本为XML文档对象
-            .then(xmlDoc => {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://rss.smg.gov.mo/c_ActualWeather_rss.xml', true); // 确保URL正确，并且服务器支持跨域请求（CORS）
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var xmlDoc = xhr.responseXML; // 获取XML文档对象
                 var xmlData = xmlDoc.getElementsByTagName("data")[0]; // 假设你想获取<data>标签的内容
                 document.getElementById("xmlData").innerHTML = xmlData.childNodes[0].nodeValue; // 显示数据
-            });
+            }
+        };
+        xhr.send();
     </script>
 </body>
 </html>
