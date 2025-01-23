@@ -1,12 +1,20 @@
-<html>
-<head> 
-<meta charset="utf-8"> 
-<title>Time</title> 
-</head> 
-<body style="background-color:	#2F4F4F;">
-
-<iframe src="clock.html" width="600" height="700" frameborder="0"></iframe>
-<iframe src="clock2.html" width="1100" height="700" frameborder="0"></iframe>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch XML Data</title>
+</head>
+<body>
+    <div id="xmlData"></div>
+ 
+    <script>
+        fetch('https://rss.smg.gov.mo/c_ActualWeather_rss.xml') // 确保URL正确，并且服务器支持跨域请求（CORS）
+            .then(response => response.text()) // 将响应作为文本处理，因为fetch默认处理JSON，需要手动处理XML文本
+            .then(str => new window.DOMParser().parseFromString(str, "text/xml")) // 解析文本为XML文档对象
+            .then(xmlDoc => {
+                var xmlData = xmlDoc.getElementsByTagName("data")[0]; // 假设你想获取<data>标签的内容
+                document.getElementById("xmlData").innerHTML = xmlData.childNodes[0].nodeValue; // 显示数据
+            });
+    </script>
 </body>
 </html>
