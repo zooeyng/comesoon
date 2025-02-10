@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 
  <head>
  <meta charset="UTF-8">
@@ -12,17 +12,20 @@
  padding: 0;
  }
  </style>
+
  </head>
 
  <body style="background-color:	#2F4F4F;">
 
  <div>
  <canvas id="c1" width="400px" height="400px">
- 
  </canvas>
  </div>
 
+</body>
+
  <script type="text/javascript">
+
  var clock = document.getElementById("c1").getContext("2d");
  
 // var clock = $("#huabu").get(0).getContext("2d"); //$中使用画布
@@ -71,7 +74,7 @@
  clock.textAlign = "center";
  clock.textBaseline = "middle";
  clock.fillStyle = "#BDB76B";
- clock.font = "20px 微软雅黑"
+ clock.font = "29px 微软雅黑"
  for(var i = 1; i < 13; i++) {
   clock.fillText(i,Math.sin(2*Math.PI /12*i)*150,Math.cos(2*Math.PI/12*i)*-150);
  }
@@ -136,9 +139,8 @@
  
  }
 	 
- </script>
-	 
+</script>
  
- </body>
+
 
 </html>

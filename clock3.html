@@ -1,0 +1,49 @@
+﻿<html>
+<head> 
+<meta charset="utf-8"> 
+
+</head>
+<body style="background-color:	#2F4F4F;">
+
+<div style="color:#BDB76B; font-size: 155px; text-align:center; font-family:Elephant;" id="cc" ></div>
+<div style="color:#BDB76B; font-size: 155px; text-align:center; font-family:Elephant;" id="dd" ></div>
+
+</body>
+	
+	<script>
+
+    function myDate(){
+        var now=new Date();
+        var year=now.getFullYear();
+        
+        var day=now.getDate();
+        var hours=now.getHours();
+        var minutes=now.getMinutes();
+        var seconds=now.getSeconds();
+
+    var weeka = new Array("Sun","Mon","Tue","Wed","Thu","Fri","Sat");
+    var week = weeka[ now.getDay()];
+
+    var montha = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+    var month= montha[ now.getMonth()];
+		
+		
+		
+		if (day<10)
+		{
+		day="0" + day;
+	}
+				
+		
+            document.getElementById("cc").innerHTML=month+" - "+day;
+            document.getElementById("dd").innerHTML=week;
+                
+
+                
+    }
+		
+		
+    setInterval(myDate,1000);
+</script>
+	
+</html>

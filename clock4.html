@@ -1,0 +1,53 @@
+﻿<html>
+<head>
+<meta charset="utf-8">
+<title>time</title>
+<style>
+body {background-color:#2E2F30; background-image:url('https://zooeyng.github.io/time/clock.jpg');}
+h1 {color:#E8DECF;font-size:420px;text-align:center;font-family:DS-Digital;}
+p {color:#C0AA83;letter-spacing:30px;font-size:190px;text-align:center;font-family:DS-DIGI;}
+</style>	
+	
+<script>
+function startTime(){
+	var tt=new Date();
+	var h=tt.getHours();
+	var m=tt.getMinutes();
+	var s=tt.getSeconds();
+	var y=tt.getFullYear();
+	var mm=Number(tt.getMonth())+1;
+	var d=tt.getDate();
+	m=checkTime(m);
+	h=checkTime(h);
+	mm=checkTime(mm);
+	d=checkTime(d);
+	document.getElementById('hour').innerHTML=h;
+	document.getElementById('min').innerHTML=m;
+	
+	t=setTimeout(function(){startTime()},1000);
+}
+function checkTime(i){
+	if (i<10){
+		i="0" + i;
+	}
+	return i;
+}
+</script>
+</head>
+<body onload="startTime()">
+	
+<table>
+<tr>
+  <td height=300px></td>
+</tr>
+</table>
+<table>
+<tr>
+  <td width=385px></td>
+  <td width=500px><h1 id="hour"></h1></td>
+  <td width=730px><h1 id="min"></h1></td>
+</tr>
+</table>
+	
+</body>
+</html>
